@@ -96,7 +96,7 @@ DATABASES = {
         'NAME': 'school',
         'USER': 'postgres',
         'PASSWORD': 'univalle123',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }

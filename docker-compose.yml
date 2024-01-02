@@ -1,0 +1,26 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .      
+      dockerfile: ./dockerfile 
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres:15.0
+    ports:
+      - "5432:5432"
+    volumes:      
+          - postgres_data:/var/lib/postgresql/data
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=univalle123
+    - POSTGRES_DB=school
+
+volumes:  
+ postgres_data:
